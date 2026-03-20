@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+
+  --color-primary: #ff4d4d;
+  --color-secondary: #ffd700;
+  --color-bg-deep: #1a1a2e;
+  --color-bg-navy: #16213e;
+  --color-card-blue: #0f3460;
+  --color-text-main: #ffffff;
+  --color-text-muted: #cbd5e1;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+body {
+  @apply bg-bg-deep text-text-muted font-sans antialiased overflow-x-hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading text-text-main;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-bg-deep;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-card-blue rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
