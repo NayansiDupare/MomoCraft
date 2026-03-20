@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MomoCard from '../components/MomoCard';
-import { momos } from '../data/momos';
+import { useData } from '../context/DataContext';
 import { ChefHat, Leaf, Zap, Award, Star, Quote } from 'lucide-react';
 
 const Home = () => {
-  const popularMomos = momos.slice(0, 3); // Grab first 3 for Fan Favourites
+  const { momosList } = useData();
+  const popularMomos = momosList.slice(0, 3); // Grab first 3 for Fan Favourites
 
   return (
     <div className="w-full">

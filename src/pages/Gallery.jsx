@@ -1,24 +1,10 @@
 import React, { useState } from 'react';
 import { ZoomIn, X } from 'lucide-react';
+import { useData } from '../context/DataContext';
 
 const Gallery = () => {
+  const { galleryImages: images } = useData();
   const [selectedImage, setSelectedImage] = useState(null);
-
-  // Array of 12 Unsplash image URLs related to dumplings/momos
-  const images = [
-    "https://source.unsplash.com/600x600/?dumplings,steamed",
-    "https://source.unsplash.com/600x800/?momos,fried",
-    "https://source.unsplash.com/800x600/?dimsum,asianfood",
-    "https://source.unsplash.com/600x700/?dumplings,spicy",
-    "https://source.unsplash.com/600x600/?streetfood,momos",
-    "https://source.unsplash.com/700x600/?dumplings,restaurant",
-    "https://source.unsplash.com/600x600/?asianfood,steamer",
-    "https://source.unsplash.com/800x800/?dumplings,sauce",
-    "https://source.unsplash.com/600x500/?dimsum,bamboo",
-    "https://source.unsplash.com/500x700/?momos,plate",
-    "https://source.unsplash.com/600x600/?dumplings,chopsticks",
-    "https://source.unsplash.com/700x800/?streetfood,asia"
-  ];
 
   const handleNext = (e) => {
     e.stopPropagation();

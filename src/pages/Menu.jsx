@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import MomoCard from '../components/MomoCard';
-import { momos } from '../data/momos';
+import { useData } from '../context/DataContext';
 
 const filters = ['All', 'Steamed', 'Fried', 'Tandoori', 'Kurkure', 'Jhol', 'Soup', 'Veg', 'Non-Veg'];
 
 const Menu = () => {
+  const { momosList } = useData();
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filteredMomos = momos.filter(momo => {
+  const filteredMomos = momosList.filter(momo => {
     if (activeFilter === 'All') return true;
     if (activeFilter === 'Veg' || activeFilter === 'Non-Veg') {
       return momo.type === activeFilter;

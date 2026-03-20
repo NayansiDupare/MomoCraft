@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useCart } from '../components/CartContext';
-import { momos } from '../data/momos';
+import { useData } from '../context/DataContext';
 import { Minus, Plus, ShoppingBag, MapPin, CreditCard, CheckCircle } from 'lucide-react';
 
 const Order = () => {
   const { cartItems, addToCart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const { momosList } = useData();
   const [deliveryMode, setDeliveryMode] = useState('delivery'); // 'delivery' or 'pickup'
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', address: '' });
 
   // Simplified menu for quick add
-  const quickMenu = momos.slice(0, 6);
+  const quickMenu = momosList.slice(0, 6);
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const gst = subtotal * 0.05;
